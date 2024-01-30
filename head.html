@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>head tail</title>
+    <style>
+        .bt {
+            height: 8vh;
+            width: 20%;
+            font-size: 18px;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .box {
+            height: 200px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: 600;
+            border: 1px solid;
+        }
+
+        .winnerDiv,
+        .winnerbox {
+            height: 100px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            font-size: 40px;
+            margin: 30px;
+            box-shadow: 5px 5px 10px 5px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="bt">show</button>
+    <div class="box"></div>
+    <div class="winnerDiv"></div>
+    <div class="winnerbox"></div>
+
+    <script>
+        let headBtn = document.querySelector(".bt")
+        let box1 = document.querySelector(".box")
+        let winnerDiv = document.querySelector(".winnerDiv")
+        let winnerbox = document.querySelector(".winnerbox")
+        let mix = ["Head", "Tail"]
+        console.log(mix);
+
+        let player
+
+
+        headBtn.addEventListener("click", function () {
+            console.log("clicking");
+
+            Head()
+
+
+        })
+
+        function RandomlySelection() {
+
+
+            let num = Math.floor(Math.random() * mix.length)
+
+            console.log(num);
+
+            box1.innerHTML = mix[num]
+
+        }
+
+
+        function Head() {
+
+            player = "Head"
+
+            RandomlySelection()
+
+            if (player == "Head" && box1.innerHTML == "Head") {
+
+                winnerDiv.innerHTML = "Player won"
+
+            }
+            else {
+                winnerDiv.innerHTML = "Player lost"
+
+            }
+
+
+        }
+
+        headBtn.addEventListener("click", function () {
+            console.log("clicking");
+
+            Tail()
+
+
+        })
+        function Tail() {
+
+            player = "Tail"
+
+            RandomlySelection()
+            if (player == "Tail" && box1.innerHTML == "Tail") {
+
+                winnerbox.innerHTML = "player won"
+            }
+            else {
+
+                winnerbox.innerHTML = "player lost"
+            }
+
+        }
+
+    </script>
+
+</html>
